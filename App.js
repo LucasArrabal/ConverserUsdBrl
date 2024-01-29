@@ -1,15 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
+import React, {Component} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Conversor from './src/conversor';
 
-export default function App() {
-  return (
+class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+
+    }
+  }
+  render(){
+      return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Conversor/>
     </View>
   );
+  }
 }
 
+export default App;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
