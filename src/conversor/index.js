@@ -5,23 +5,35 @@ class Conversor extends Component {
   constructor(props){
     super(props);
     this.state = {
-
+      value : '',
+      input: ''
     }
+    this.getValue = this.getValue.bind(this);
   }
+
+  getValue(){
+    if(this.state.input == ''){
+      alert('digite um valor para converter');
+      return;
+    }
+    this.setState({value: this.state.input})
+  }
+
+
   render(){
       return (
     <View style={styles.container}>
-      <Text style={styles.titulo}>USD para BRL</Text>
+      <Text style={styles.titulo}>BRL para USD</Text>
       <TextInput
       placeholder='Valor a ser convertido'
       style={styles.areaInput}
-      onChangeText={() => {}}
+      onChangeText={(number) => this.setState({input: number})}
       keyboardType='numeric'
       />
-      <TouchableOpacity style={styles.btn}>
+      <TouchableOpacity style={styles.btn} onPress={this.getValue}>
         <Text style={styles.btnTxt}>Converter</Text>
       </TouchableOpacity>
-      <Text style={styles.valorConvertido}>10.00</Text>
+      <Text style={styles.valorConvertido}>{this.state.value * 4.98}</Text>
 
     </View>
   );
